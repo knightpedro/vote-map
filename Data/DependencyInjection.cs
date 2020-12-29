@@ -9,7 +9,8 @@ namespace VoteMap.Data
         public static IServiceCollection AddData(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<VoteMapDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("VoteMapDatabase")));
+                options.UseSqlServer(configuration.GetConnectionString("VoteMapDatabase"), 
+                    x => x.UseNetTopologySuite()));
             return services;
         }
     }

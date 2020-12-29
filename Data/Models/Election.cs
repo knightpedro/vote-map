@@ -12,6 +12,7 @@ namespace VoteMap.Data.Models
         public int CandidateInformalVotes { get; set; }
 
         public List<BoothVote> BoothVotes { get; set; }
+        public List<CandidateCampaign> CandidateCampaigns {  get; set; }
         public List<ElectorateVote> ElectorateVotes { get; set; }
         public List<PartyCampaign> PartyCampaigns { get; set; }
 
