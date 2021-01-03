@@ -9,6 +9,7 @@ namespace VoteMap.Data.Configuration
         public void Configure(EntityTypeBuilder<Booth> builder)
         {
             builder.Property(b => b.Name).IsRequired();
+            builder.Property(b => b.Suburb).IsRequired();
         }
     }
 }

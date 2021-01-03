@@ -18,6 +18,5 @@ namespace VoteMap.Data.Models
         public List<ElectoratePartyResult> ElectorateResults { get; set; }
 
         public int TotalSeats => CandidateSeats + PartySeats;
-        public int TotalVotes => CandidateVotes + PartyVotes;
     }
 }
