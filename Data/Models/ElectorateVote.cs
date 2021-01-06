@@ -17,9 +17,9 @@
         public int PartyInformalSpecialVotes { get; set; }
         public int PartySpecialVotesDisallowed { get; set; }
 
-        public string ElectionId { get; set; }
+        public int ElectionId { get; set; }
         public Election Election { get; set; }
-        public string ElectorateId { get; set; }
+        public int ElectorateId { get; set; }
         public Electorate Electorate { get; set; }
 
         public int CandidateValidVotes => CandidateValidOrdinaryVotes + CandidateValidSpecialVotes;

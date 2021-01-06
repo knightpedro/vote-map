@@ -22,13 +22,19 @@ namespace VoteMap.Data.Migrations
 
             modelBuilder.Entity("VoteMap.Data.Models.Booth", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<Point>("Location")
                         .HasColumnType("geography");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Suburb")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -39,16 +45,16 @@ namespace VoteMap.Data.Migrations
 
             modelBuilder.Entity("VoteMap.Data.Models.BoothCandidateResult", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
-                    b.Property<string>("BoothId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("BoothId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("CandidateCampaignId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("CandidateCampaignId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Votes")
                         .HasColumnType("int");
@@ -64,16 +70,16 @@ namespace VoteMap.Data.Migrations
 
             modelBuilder.Entity("VoteMap.Data.Models.BoothPartyResult", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
-                    b.Property<string>("BoothId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("BoothId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("PartyCampaignId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("PartyCampaignId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Votes")
                         .HasColumnType("int");
@@ -89,12 +95,13 @@ namespace VoteMap.Data.Migrations
 
             modelBuilder.Entity("VoteMap.Data.Models.BoothVote", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
-                    b.Property<string>("BoothId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("BoothId")
+                        .HasColumnType("int");
 
                     b.Property<int>("CandidateInformalVotes")
                         .HasColumnType("int");
@@ -102,13 +109,11 @@ namespace VoteMap.Data.Migrations
                     b.Property<int>("CandidateValidVotes")
                         .HasColumnType("int");
 
-                    b.Property<string>("ElectionId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("ElectionId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("ElectorateId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("ElectorateId")
+                        .HasColumnType("int");
 
                     b.Property<int>("PartyInformalVotes")
                         .HasColumnType("int");
@@ -129,8 +134,10 @@ namespace VoteMap.Data.Migrations
 
             modelBuilder.Entity("VoteMap.Data.Models.Candidate", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -143,19 +150,19 @@ namespace VoteMap.Data.Migrations
 
             modelBuilder.Entity("VoteMap.Data.Models.CandidateCampaign", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
-                    b.Property<string>("CandidateId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("CandidateId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("ElectionId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("ElectionId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("PartyId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("PartyId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -170,8 +177,10 @@ namespace VoteMap.Data.Migrations
 
             modelBuilder.Entity("VoteMap.Data.Models.Election", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<int>("CandidateInformalVotes")
                         .HasColumnType("int");
@@ -195,8 +204,10 @@ namespace VoteMap.Data.Migrations
 
             modelBuilder.Entity("VoteMap.Data.Models.Electorate", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -213,12 +224,13 @@ namespace VoteMap.Data.Migrations
 
             modelBuilder.Entity("VoteMap.Data.Models.ElectorateCandidateResult", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
-                    b.Property<string>("CandidateCampaignId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("CandidateCampaignId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Votes")
                         .HasColumnType("int");
@@ -233,16 +245,16 @@ namespace VoteMap.Data.Migrations
 
             modelBuilder.Entity("VoteMap.Data.Models.ElectoratePartyResult", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
-                    b.Property<string>("ElectorateId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("ElectorateId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("PartyCampaignId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("PartyCampaignId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Votes")
                         .HasColumnType("int");
@@ -258,8 +270,10 @@ namespace VoteMap.Data.Migrations
 
             modelBuilder.Entity("VoteMap.Data.Models.ElectorateVote", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<int>("CandidateInformalOrdinaryVotes")
                         .HasColumnType("int");
@@ -276,13 +290,11 @@ namespace VoteMap.Data.Migrations
                     b.Property<int>("CandidateValidSpecialVotes")
                         .HasColumnType("int");
 
-                    b.Property<string>("ElectionId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("ElectionId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("ElectorateId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("ElectorateId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Enrolled")
                         .HasColumnType("int");
@@ -316,8 +328,10 @@ namespace VoteMap.Data.Migrations
 
             modelBuilder.Entity("VoteMap.Data.Models.Party", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -330,8 +344,10 @@ namespace VoteMap.Data.Migrations
 
             modelBuilder.Entity("VoteMap.Data.Models.PartyCampaign", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<int>("CandidateSeats")
                         .HasColumnType("int");
@@ -339,13 +355,11 @@ namespace VoteMap.Data.Migrations
                     b.Property<int>("CandidateVotes")
                         .HasColumnType("int");
 
-                    b.Property<string>("ElectionId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("ElectionId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("PartyId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("PartyId")
+                        .HasColumnType("int");
 
                     b.Property<int>("PartySeats")
                         .HasColumnType("int");

@@ -12,8 +12,10 @@ namespace VoteMap.Data.Migrations
                 name: "Booths",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Suburb = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Location = table.Column<Point>(type: "geography", nullable: true)
                 },
                 constraints: table =>
@@ -25,7 +27,8 @@ namespace VoteMap.Data.Migrations
                 name: "Candidates",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -37,7 +40,8 @@ namespace VoteMap.Data.Migrations
                 name: "Elections",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PartyValidVotes = table.Column<int>(type: "int", nullable: false),
                     PartyInformalVotes = table.Column<int>(type: "int", nullable: false),
@@ -53,7 +57,8 @@ namespace VoteMap.Data.Migrations
                 name: "Electorates",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -66,7 +71,8 @@ namespace VoteMap.Data.Migrations
                 name: "Parties",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -78,14 +84,15 @@ namespace VoteMap.Data.Migrations
                 name: "BoothVotes",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     CandidateValidVotes = table.Column<int>(type: "int", nullable: false),
                     CandidateInformalVotes = table.Column<int>(type: "int", nullable: false),
                     PartyValidVotes = table.Column<int>(type: "int", nullable: false),
                     PartyInformalVotes = table.Column<int>(type: "int", nullable: false),
-                    BoothId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ElectorateId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ElectionId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    BoothId = table.Column<int>(type: "int", nullable: false),
+                    ElectorateId = table.Column<int>(type: "int", nullable: false),
+                    ElectionId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -114,7 +121,8 @@ namespace VoteMap.Data.Migrations
                 name: "ElectorateVotes",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Enrolled = table.Column<int>(type: "int", nullable: false),
                     Population = table.Column<int>(type: "int", nullable: false),
                     CandidateValidOrdinaryVotes = table.Column<int>(type: "int", nullable: false),
@@ -127,8 +135,8 @@ namespace VoteMap.Data.Migrations
                     PartyValidSpecialVotes = table.Column<int>(type: "int", nullable: false),
                     PartyInformalSpecialVotes = table.Column<int>(type: "int", nullable: false),
                     PartySpecialVotesDisallowed = table.Column<int>(type: "int", nullable: false),
-                    ElectionId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ElectorateId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    ElectionId = table.Column<int>(type: "int", nullable: false),
+                    ElectorateId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -151,10 +159,11 @@ namespace VoteMap.Data.Migrations
                 name: "CandidateCampaigns",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CandidateId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ElectionId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    PartyId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CandidateId = table.Column<int>(type: "int", nullable: false),
+                    ElectionId = table.Column<int>(type: "int", nullable: false),
+                    PartyId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -183,14 +192,15 @@ namespace VoteMap.Data.Migrations
                 name: "PartyCampaigns",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     CandidateSeats = table.Column<int>(type: "int", nullable: false),
                     CandidateVotes = table.Column<int>(type: "int", nullable: false),
                     PartySeats = table.Column<int>(type: "int", nullable: false),
                     PartyVotes = table.Column<int>(type: "int", nullable: false),
                     Registered = table.Column<bool>(type: "bit", nullable: false),
-                    ElectionId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    PartyId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    ElectionId = table.Column<int>(type: "int", nullable: false),
+                    PartyId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -213,10 +223,11 @@ namespace VoteMap.Data.Migrations
                 name: "BoothCandidateResults",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Votes = table.Column<int>(type: "int", nullable: false),
-                    BoothId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CandidateCampaignId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    BoothId = table.Column<int>(type: "int", nullable: false),
+                    CandidateCampaignId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -239,9 +250,10 @@ namespace VoteMap.Data.Migrations
                 name: "ElectorateCandidateResults",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Votes = table.Column<int>(type: "int", nullable: false),
-                    CandidateCampaignId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    CandidateCampaignId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -258,10 +270,11 @@ namespace VoteMap.Data.Migrations
                 name: "BoothPartyResults",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Votes = table.Column<int>(type: "int", nullable: false),
-                    BoothId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    PartyCampaignId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    BoothId = table.Column<int>(type: "int", nullable: false),
+                    PartyCampaignId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -284,10 +297,11 @@ namespace VoteMap.Data.Migrations
                 name: "ElectoratePartyResults",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Votes = table.Column<int>(type: "int", nullable: false),
-                    ElectorateId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    PartyCampaignId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    ElectorateId = table.Column<int>(type: "int", nullable: false),
+                    PartyCampaignId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

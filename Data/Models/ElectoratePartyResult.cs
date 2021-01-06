@@ -3,9 +3,9 @@
     public class ElectoratePartyResult : BaseModel
     {
         public int Votes { get; set; }
-        public string ElectorateId { get; set; }
+        public int ElectorateId { get; set; }
         public Electorate Electorate { get; set; }
-        public string PartyCampaignId { get; set; }
+        public int PartyCampaignId { get; set; }
         public PartyCampaign PartyCampaign { get; set; }
     }
 }

@@ -3,7 +3,7 @@
     public class ElectorateCandidateResult : BaseModel
     {
         public int Votes { get; set; }
-        public string CandidateCampaignId { get; set; }
+        public int CandidateCampaignId { get; set; }
         public CandidateCampaign CandidateCampaign { get; set; }
     }
 }

@@ -10,9 +10,9 @@ namespace VoteMap.Data.Models
         public int PartyVotes { get; set; }
         public bool Registered { get; set; }
         public Election Election { get; set; }
-        public string ElectionId { get; set; }
+        public int ElectionId { get; set; }
         public Party Party { get; set; }
-        public string PartyId { get; set; }
+        public int PartyId { get; set; }
 
         public List<BoothPartyResult> BoothResults { get; set; }
         public List<ElectoratePartyResult> ElectorateResults { get; set; }

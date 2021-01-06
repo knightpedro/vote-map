@@ -1,10 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace VoteMap.Data.Models
+﻿namespace VoteMap.Data.Models
 {
     public abstract class BaseModel
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string Id { get; set; }
+        public int Id { get; set; }
     }
 }

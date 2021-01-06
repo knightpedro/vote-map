@@ -7,11 +7,11 @@
         public int PartyValidVotes { get; set; }
         public int PartyInformalVotes { get; set; }
 
-        public string BoothId { get; set; }
+        public int BoothId { get; set; }
         public Booth Booth { get; set; }
-        public string ElectorateId { get; set; }
+        public int ElectorateId { get; set; }
         public Electorate Electorate { get; set; }
-        public string ElectionId { get; set; }
+        public int ElectionId { get; set; }
         public Election Election { get; set; }
     }
 }
